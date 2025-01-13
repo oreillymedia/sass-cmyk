@@ -10,7 +10,7 @@ module CMYKClass
     # Sass::Script::Value::CMYK.new({:cyan=>10, :magenta=>20, :yellow=>30, :black=>40}) is equivalent to cmyk(10%,20%,30%,40%)
     def initialize(cmyk_attrs)
       # Reject all attribute values that are not numbers between 0 and 100
-      cmyk_attrs.reject! {|k, v| !(v.class == Fixnum and v.between?(0, 100))}
+      cmyk_attrs.reject! {|k, v| !(v.class == Integer and v.between?(0, 100))}
       raise ArgumentError.new("CMYK Object must be initialized with hash values between 0 and 100 for :cyan, :magenta, :yellow, and :black") unless [:cyan, :magenta, :yellow, :black].all? {|k| cmyk_attrs.key? k}
       @attrs = cmyk_attrs        
     end
@@ -122,7 +122,7 @@ module CMYKLibrary
         comp_value_normalized = (comp_value.value * 100).round
       end
 
-      if comp_value_normalized.is_a?(Fixnum) && comp_value_normalized.between?(0, 100)
+      if comp_value_normalized.is_a?(Integer) && comp_value_normalized.between?(0, 100)
         [comp_name, comp_value_normalized]
       else
         raise ArgumentError.new("Invalid #{comp_name} value #{comp_value}. Must be a float between 0 and 1 or a percent between 0 and 100.")

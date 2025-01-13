@@ -8,13 +8,13 @@ Gem::Specification.new do |gem|
     making it a great fit for doing print typesetting with CSS.
   DESC
 
-  gem.version = '0.0.1'
-  gem.authors = ['Sanders Kleinfeld']
-  gem.email = 'sanders@oreilly.com'
-  gem.homepage = 'https://github.com/sandersk/sass-cmyk'
+  gem.version = '0.0.2'
+  gem.authors = ['Sanders Kleinfeld and O\'Reilly Tools Team']
+  gem.email = 'toolsreq@oreilly.com'
+  gem.homepage = 'https://github.com/oreillymedia/sass-cmyk'
   gem.license = 'MIT'
   gem.files = ['lib/sass-cmyk.rb']
-  gem.required_ruby_version = '>= 1.8.7'
+  gem.required_ruby_version = '>= 3.3.6'
   gem.add_development_dependency "rspec"
   gem.add_runtime_dependency "sass"
 end
